@@ -1,0 +1,140 @@
+plugins {
+  id 'com.android.application'
+  id 'kotlin-android'
+  id 'kotlin-kapt'
+  id 'dagger.hilt.android.plugin'
+  id 'kotlin-parcelize'
+}
+
+android {
+  compileSdkVersion rootProject.compileSdkVersion
+
+  defaultConfig {
+    applicationId "com.akshay.atlysaccounting"
+    minSdkVersion rootProject.minSdkVersion
+    targetSdkVersion rootProject.targetSdkVersion
+    versionCode 1
+    versionName "1.0"
+
+    testInstrumentationRunner "com.akshay.atlysaccounting.utility.AtlysRunner"
+  }
+
+  buildTypes {
+    release {
+      minifyEnabled true
+      proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+    }
+  }
+
+  kotlinOptions {
+    jvmTarget = '1.8'
+  }
+
+  dataBinding {
+    enabled = true
+  }
+
+  /**
+   * sharedTest directory act as bridge between unit and instrumentation tests.
+   */
+  sourceSets {
+    androidTest {
+      java.srcDirs += "src/sharedTest/java"
+    }
+    test {
+      java.srcDirs += "src/sharedTest/java"
+    }
+  }
+
+  testOptions {
+    unitTests {
+      includeAndroidResources = true
+    }
+  }
+
+  packagingOptions {
+    resources.excludes.add("META-INF/*")
+  }
+}
+
+/**
+ * The below dependencies{} is a groovy style to manage the dependencies.
+ *
+ * The other approach for a good dependency management for single module project is to
+ * centralise all the versions in the root level build.gradle file and use it here.
+ *
+ * The other approach is to take advantage for Kotlin-dsl which helps in a better
+ * dependency management.
+ */
+dependencies {
+
+  implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
+  implementation "androidx.appcompat:appcompat:$appCompatVersion"
+  implementation "androidx.fragment:fragment-ktx:$fragmentKtxVersion"
+
+  // UI
+  implementation "com.google.android.material:material:$materialVersion"
+  implementation "androidx.recyclerview:recyclerview:$recyclerViewVersion"
+
+  // Dependency Framework
+  implementation "com.google.dagger:hilt-android:$hiltVersion"
+  kapt "com.google.dagger:hilt-android-compiler:$hiltVersion"
+
+  // Dependency Framework Testing
+  androidTestImplementation "com.google.dagger:hilt-android-testing:$hiltVersion"
+  testImplementation "com.google.dagger:hilt-android-testing:$hiltVersion"
+  kaptAndroidTest "com.google.dagger:hilt-android-compiler:$hiltVersion"
+  kaptTest "com.google.dagger:hilt-android-compiler:$hiltVersion"
+
+  // Asynchronous Framework
+  implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion"
+  implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
+
+  // Asynchronous Framework Testing
+  testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
+  testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion"
+  androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion"
+
+  // Lifecycle Dependencies
+  implementation "androidx.lifecycle:lifecycle-livedata-ktx:$archLifecycleVersion"
+  implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.4.0-alpha03"
+
+  // Local Database Dependencies
+  implementation "androidx.room:room-runtime:$roomVersion"
+  kapt "androidx.room:room-compiler:$roomVersion"
+  implementation "androidx.room:room-ktx:$roomVersion"
+
+  // Local Database Dependencies Testing
+  androidTestImplementation "androidx.room:room-testing:$roomVersion"
+
+  // Serializer/Deserializer Dependency
+  implementation "com.squareup.moshi:moshi-kotlin:$moshiKotlinVersion"
+
+  // Unit Testing Dependencies
+  testImplementation "junit:junit:$junitVersion"
+  testImplementation "androidx.test:core-ktx:$androidXTestCoreVersion"
+  testImplementation "androidx.test.ext:junit-ktx:$androidXTestExtKotlinRunnerVersion"
+  testImplementation "androidx.arch.core:core-testing:$archTestingVersion"
+  testImplementation "org.robolectric:annotations:$robolectricVersion"
+  testImplementation "org.robolectric:robolectric:$robolectricVersion"
+  testImplementation "androidx.test.espresso:espresso-core:$espressoVersion"
+  testImplementation "androidx.test.espresso:espresso-contrib:$espressoVersion"
+  testImplementation "androidx.test.espresso:espresso-intents:$espressoVersion"
+  testImplementation "com.google.truth:truth:$truthVersion"
+  testImplementation "androidx.test:rules:$androidXTestRulesVersion"
+
+  // Instrumentation Testing Dependencies
+  androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+  androidTestImplementation "androidx.test.ext:junit-ktx:$androidXTestExtKotlinRunnerVersion"
+  androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVersion"
+  androidTestImplementation "androidx.test.espresso:espresso-contrib:$espressoVersion"
+  androidTestImplementation "androidx.test.espresso:espresso-intents:$espressoVersion"
+  androidTestImplementation "androidx.test.espresso.idling:idling-concurrent:$espressoVersion"
+  androidTestImplementation "com.google.truth:truth:$truthVersion"
+  androidTestImplementation "androidx.arch.core:core-testing:2.1.0"
+
+  // https://issuetracker.google.com/127986458
+  debugImplementation "androidx.fragment:fragment-testing:$fragmentVersion"
+  implementation "androidx.test:core:$androidXTestCoreVersion"
+  implementation "androidx.fragment:fragment:$fragmentVersion"
+}

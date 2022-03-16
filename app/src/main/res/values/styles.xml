@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <style name="divider">
+    <item name="android:layout_width">1dp</item>
+    <item name="android:layout_height">0dp</item>
+    <item name="android:background">@color/divider_color</item>
+  </style>
+
+  <style name="Title" parent="Heading">
+    <item name="android:textSize">@dimen/title_text_size</item>
+    <item name="android:lineSpacingExtra">-1dp</item>
+  </style>
+
+  <style name="Heading1" parent="Heading">
+    <item name="android:textSize">@dimen/heading1_text_size</item>
+    <item name="android:lineSpacingExtra">-1dp</item>
+  </style>
+
+  <style name="Heading3" parent="Heading">
+    <item name="android:textSize">@dimen/subheading1_text_size</item>
+    <item name="android:lineSpacingExtra">-1dp</item>
+  </style>
+
+  <style name="SubHeading1" parent="Body">
+    <item name="android:textSize">@dimen/subheading1_text_size</item>
+    <item name="android:lineSpacingExtra">-1dp</item>
+  </style>
+
+  <style name="SubHeading2" parent="Body">
+    <item name="android:textSize">@dimen/subheading2_text_size</item>
+    <item name="android:lineSpacingExtra">-1dp</item>
+  </style>
+
+  <style name="Heading2" parent="Heading">
+    <item name="android:textSize">@dimen/heading2_text_size</item>
+    <item name="android:lineSpacingExtra">-0.63dp</item>
+  </style>
+
+  <style name="Heading4" parent="Heading">
+    <item name="android:textSize">12sp</item>
+    <item name="android:lineSpacingExtra">-0.8dp</item>
+  </style>
+
+  <style name="Heading" parent="TextView.Common1">
+    <item name="android:fontFamily">@font/spartan_bold</item>
+    <item name="fontFamily">@font/spartan_bold</item>
+  </style>
+
+  <style name="Body" parent="TextView.Common1">
+    <item name="android:fontFamily">@font/spartan_medium</item>
+    <item name="fontFamily">@font/spartan_medium</item>
+  </style>
+
+  <style name="Button1" parent="TextAppearance.MaterialComponents.Button">
+    <item name="android:layout_width">wrap_content</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:textSize">12sp</item>
+    <item name="android:textColor">@color/text_view_color</item>
+  </style>
+
+  <!-- This style should not be used in layout/*.xml files.-->
+  <style name="TextView.Common1" parent="Widget.AppCompat.TextView">
+    <item name="android:layout_width">wrap_content</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:textAllCaps">false</item>
+    <item name="android:textColor">@color/text_view_color</item>
+  </style>
+
+  <style name="CircularImageView">
+    <item name="cornerFamily">rounded</item>
+    <item name="cornerSize">50%</item>
+  </style>
+
+  <style name="InputInteractionEditText" parent="Widget.AppCompat.EditText">
+    <item name="android:background">@drawable/edit_text_input_background</item>
+    <item name="android:fontFamily">@font/spartan_bold</item>
+    <item name="android:longClickable">false</item>
+    <item name="android:padding">16dp</item>
+    <item name="android:textColor">@color/text_view_color</item>
+    <item name="android:textSize">14sp</item>
+    <item name="fontFamily">@font/spartan_bold</item>
+  </style>
+
+  <style name="ThemeOverlay.App.DatePicker" parent="@style/ThemeOverlay.MaterialComponents.MaterialCalendar">
+    <item name="colorPrimary">@color/violet_shade_20</item>
+    <item name="colorOnPrimary">@color/violet_shade_10</item>
+    <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.App.SmallComponent</item>
+    <item name="shapeAppearanceMediumComponent">@style/ShapeAppearance.App.MediumComponent</item>
+  </style>
+
+  <style name="ShapeAppearance.App.SmallComponent" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+    <item name="cornerFamily">cut</item>
+  </style>
+
+  <style name="ShapeAppearance.App.MediumComponent" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+    <item name="cornerSize">16dp</item>
+  </style>
+</resources>

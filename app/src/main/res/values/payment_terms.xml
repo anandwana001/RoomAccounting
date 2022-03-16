@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string-array name="payment_terms">
+    <item>Net 1 day</item>
+    <item>Net 7 day</item>
+    <item>Net 14 day</item>
+    <item>Net 30 day</item>
+  </string-array>
+</resources>

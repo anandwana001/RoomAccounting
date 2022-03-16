@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:bind="http://schemas.android.com/tools">
+
+  <data>
+
+    <variable
+      name="viewModel"
+      type="com.akshay.atlysaccounting.ui.home.display.DisplayInvoiceItemViewModel" />
+  </data>
+
+  <FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.google.android.material.card.MaterialCardView
+      android:id="@+id/minimal_invoice_container_card"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="16dp"
+      app:cardBackgroundColor="@color/card_background"
+      app:cardCornerRadius="8dp">
+
+      <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="true">
+
+        <TextView
+          android:id="@+id/invoice_id_text_view"
+          style="@style/Heading3"
+          android:layout_marginStart="32dp"
+          android:layout_marginTop="32dp"
+          app:endIndex="@{1}"
+          app:layout_constraintBaseline_toBaselineOf="@+id/client_name_text_view"
+          app:layout_constraintStart_toStartOf="parent"
+          app:spanColor="@{@color/prefix_id_text_color}"
+          app:spannableString="@{String.format(@string/invoice_id, viewModel.id)}"
+          app:startIndex="@{0}" />
+
+        <TextView
+          android:id="@+id/client_name_text_view"
+          android:layout_width="0dp"
+          style="@style/SubHeading2"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="32dp"
+          android:layout_marginEnd="32dp"
+          android:ellipsize="end"
+          android:maxLines="2"
+          android:text="@{viewModel.name}"
+          android:textAlignment="textEnd"
+          app:layout_constraintBottom_toTopOf="@+id/status_container"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toEndOf="@+id/invoice_id_text_view"
+          app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+          android:id="@+id/payment_due_text_view"
+          style="@style/SubHeading1"
+          android:layout_marginTop="32dp"
+          app:date="@{viewModel.dueDate}"
+          android:textColor="@color/lavender"
+          app:layout_constraintStart_toStartOf="@+id/invoice_id_text_view"
+          app:layout_constraintTop_toBottomOf="@+id/invoice_id_text_view"
+          app:prefix="@{@string/due_date_prefix}" />
+
+        <TextView
+          android:id="@+id/total_amount_text_view"
+          style="@style/Heading1"
+          android:layout_marginTop="8dp"
+          android:layout_marginBottom="32dp"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintStart_toStartOf="@+id/payment_due_text_view"
+          app:layout_constraintTop_toBottomOf="@+id/payment_due_text_view"
+          app:total="@{viewModel.total}" />
+
+        <androidx.constraintlayout.widget.Guideline
+          android:id="@+id/guideline4"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+          android:orientation="vertical"
+          app:layout_constraintGuide_percent="0.6" />
+
+        <include
+          android:id="@+id/status_container"
+          layout="@layout/status_label"
+          android:layout_width="0dp"
+          android:layout_height="0dp"
+          android:layout_marginTop="8dp"
+          android:layout_marginEnd="32dp"
+          android:layout_marginBottom="4dp"
+          app:layout_constraintBottom_toBottomOf="@+id/total_amount_text_view"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="@+id/guideline4"
+          app:layout_constraintTop_toTopOf="@+id/payment_due_text_view"
+          bind:status="@{viewModel.status}" />
+      </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+  </FrameLayout>
+</layout>

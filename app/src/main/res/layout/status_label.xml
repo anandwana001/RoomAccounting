@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools">
+
+  <data>
+
+    <variable
+      name="status"
+      type="com.akshay.atlysaccounting.data.model.StatusInvoice" />
+  </data>
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.0"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:statusBackground="@{status}"
+      tools:background="@drawable/paid_status_background" />
+
+    <View
+      android:id="@+id/status_bubble"
+      android:layout_width="@dimen/status_bubble_width"
+      android:layout_height="@dimen/status_bubble_height"
+      android:layout_marginEnd="8dp"
+      app:layout_constraintBottom_toBottomOf="@id/status_text_view"
+      app:layout_constraintEnd_toStartOf="@+id/status_text_view"
+      app:layout_constraintHorizontal_bias="0.5"
+      app:layout_constraintHorizontal_chainStyle="packed"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="@id/status_text_view"
+      app:statusBubble="@{status}"
+      tools:background="@drawable/paid_bubble" />
+
+    <TextView
+      android:id="@+id/status_text_view"
+      style="@style/Heading4"
+      android:gravity="center"
+      app:invoiceStatus="@{status}"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.5"
+      app:layout_constraintStart_toEndOf="@+id/status_bubble"
+      app:layout_constraintTop_toTopOf="parent"
+      tools:text="@string/paid_status" />
+  </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

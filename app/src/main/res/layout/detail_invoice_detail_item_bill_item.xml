@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools">
+
+  <data>
+    <variable
+      name="viewModel"
+      type="com.akshay.atlysaccounting.ui.home.detail.SingleEntryInvoiceViewModel" />
+  </data>
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="16dp"
+    android:paddingBottom="8dp">
+
+    <TextView
+      android:id="@+id/item_name_title_text_view"
+      style="@style/Heading3"
+      android:text="@{viewModel.name}"
+      android:layout_marginStart="16dp"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      tools:text="Banner Design" />
+
+    <TextView
+      android:id="@+id/item_quantity_price_title_text_view"
+      style="@style/Heading3"
+      android:layout_marginTop="8dp"
+      app:quantity="@{viewModel.quantity}"
+      app:price="@{viewModel.price}"
+      android:textColor="@color/ube"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintStart_toStartOf="@+id/item_name_title_text_view"
+      app:layout_constraintTop_toBottomOf="@+id/item_name_title_text_view"
+      tools:text="1 * 200" />
+
+    <TextView
+      android:id="@+id/item_total_title_text_view"
+      style="@style/Heading3"
+      android:layout_marginEnd="16dp"
+      app:total="@{viewModel.total}"
+      app:layout_constraintBottom_toBottomOf="@+id/item_quantity_price_title_text_view"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="1.0"
+      app:layout_constraintStart_toEndOf="@+id/item_name_title_text_view"
+      app:layout_constraintTop_toTopOf="@+id/item_name_title_text_view"
+      tools:text="500.00" />
+  </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

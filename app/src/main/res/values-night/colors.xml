@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <color name="text_view_color">#FFF</color>
+  <color name="page_background">#0C0E16</color>
+  <color name="divider_color">#888EB0</color>
+  <color name="card_background">#1E2139</color>
+  <color name="card_background2">#252945</color>
+  <color name="prefix_id_text_color">#7E88C3</color>
+</resources>

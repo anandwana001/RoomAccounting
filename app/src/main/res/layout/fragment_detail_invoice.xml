@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto">
+
+  <data>
+
+    <variable
+      name="viewModel"
+      type="com.akshay.atlysaccounting.ui.home.detail.DetailInvoiceViewModel" />
+  </data>
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/detail_invoice_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+      android:id="@+id/go_back_arrow_image_view"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="16dp"
+      android:layout_marginTop="32dp"
+      android:contentDescription="@string/content_des_go_back"
+      android:src="@drawable/icon_arrow_left"
+      app:layout_constraintBottom_toBottomOf="@+id/go_back_text_view"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+      android:id="@+id/go_back_text_view"
+      style="@style/Heading2"
+      android:layout_marginStart="16dp"
+      android:layout_marginTop="32dp"
+      android:text="@string/go_back"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.0"
+      app:layout_constraintStart_toEndOf="@+id/go_back_arrow_image_view"
+      app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+      android:id="@+id/detail_invoice_recycler_view"
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      android:layout_marginStart="16dp"
+      android:layout_marginTop="16dp"
+      android:layout_marginEnd="16dp"
+      android:clipToPadding="false"
+      android:paddingBottom="50dp"
+      app:data="@{viewModel.detailItemList}"
+      app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+      app:layout_constraintBottom_toTopOf="@+id/bottom_guideline"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/go_back_text_view" />
+
+    <androidx.constraintlayout.widget.Guideline
+      android:id="@+id/bottom_guideline"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal"
+      app:layout_constraintGuide_percent="0.85" />
+
+    <View
+      android:id="@+id/background_view"
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      android:background="@color/card_background2"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/bottom_guideline" />
+
+    <Button
+      android:id="@+id/edit_button"
+      style="@style/Button1"
+      android:background="@drawable/edit_background"
+      android:fontFamily="@font/spartan_bold"
+      android:text="@string/edit_button"
+      app:backgroundTint="@null"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toStartOf="@+id/delete_button"
+      app:layout_constraintHorizontal_bias="0.5"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="@+id/bottom_guideline" />
+
+    <Button
+      android:id="@+id/delete_button"
+      style="@style/Button1"
+      android:background="@drawable/delete_background"
+      android:fontFamily="@font/spartan_bold"
+      android:text="@string/delete_button"
+      app:backgroundTint="@null"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toStartOf="@+id/mark_as_paid_button"
+      app:layout_constraintHorizontal_bias="0.5"
+      app:layout_constraintStart_toEndOf="@+id/edit_button"
+      app:layout_constraintTop_toTopOf="@+id/bottom_guideline" />
+
+    <Button
+      android:id="@+id/mark_as_paid_button"
+      style="@style/Button1"
+      android:fontFamily="@font/spartan_bold"
+      android:onClick="@{() -> viewModel.markInvoiceAsPaid()}"
+      android:text="@string/mark_as_paid_button"
+      app:backgroundTint="@null"
+      app:checkStatus="@{viewModel.currentStatus}"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.5"
+      app:layout_constraintStart_toEndOf="@+id/delete_button"
+      app:layout_constraintTop_toTopOf="@+id/bottom_guideline" />
+  </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

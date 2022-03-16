@@ -1,0 +1,71 @@
+<resources>
+  <string name="app_name">AtlysAccounting</string>
+
+  <string name="paid_status">Paid</string>
+  <string name="pending_status">Pending</string>
+  <string name="draft_status">Draft</string>
+
+  <!-- Home Screen -->
+  <string name="content_des_app_theme_button">App theme button</string>
+
+  <!-- Display Fragment -->
+  <string name="empty_list_title">There is nothing here</string>
+  <string name="empty_list_message">Create an invoice by clicking the New button and get started</string>
+  <string name="content_des_empty_image">Image showing no invoice</string>
+  <string name="invoices_title">Invoices</string>
+  <string name="invoice_count_zero">No Invoices</string>
+  <plurals name="invoice_count">
+    <item quantity="one">1 invoice</item>
+    <item quantity="other">%d invoices</item>
+  </plurals>
+  <string name="invoice_id">#%s</string>
+  <string name="invoice_total_amount_zero">\u00a3 0.0</string>
+  <string name="due_date_prefix">Due</string>
+  <string name="date_with_prefix">%s %s</string>
+  <string name="due_date_unknown">Due Date Unknown</string>
+  <string name="new_invoice_button">New</string>
+
+  <!-- Detail Fragment -->
+  <string name="go_back">Go Back</string>
+  <string name="content_des_go_back">Go Back Arrow</string>
+  <string name="edit_button">Edit</string>
+  <string name="delete_button">Delete</string>
+  <string name="mark_as_paid_button">Mark as Paid</string>
+  <string name="status">Status</string>
+  <string name="invoice_date_title">Invoice Date</string>
+  <string name="bill_to_title">Bill To</string>
+  <string name="send_to_title">Send to</string>
+  <string name="payment_due_title">Payment Due</string>
+  <string name="amount_due_title">Amount Due</string>
+  <string name="complete_address">%s\n%s\n%s\n%s</string>
+  <string name="quantity_price_bill">%d * \u00a3 %.2f</string>
+
+  <!-- DeleteConfirmationDialogFragment -->
+  <string name="confirm_delete_title">Confirm Deletion</string>
+  <string name="confirm_delete_message">Are you sure you want to delete invoice #%s?. This action cannot be undone.</string>
+  <string name="cancel">Cancel</string>
+
+  <!-- WriteInvoiceFragment -->
+  <string name="bill_from_title">Bill From</string>
+  <string name="street_address_title">Street Address</string>
+  <string name="city_title">City</string>
+  <string name="post_code_title">Post Code</string>
+  <string name="country_title">Country</string>
+  <string name="clients_name_title">Client\'s Name</string>
+  <string name="clients_email_title">Client\'s Email</string>
+  <string name="payment_terms_title">Payment Terms</string>
+  <string name="project_description_title">Project / Description</string>
+  <string name="item_list">Item List</string>
+  <string name="add_item_button">+ Add New Item</string>
+  <string name="item_name_title">Item Name</string>
+  <string name="quantity_title">Qty.</string>
+  <string name="total_title">Total</string>
+  <string name="price_title">Price</string>
+  <string name="discard_button">Discard</string>
+  <string name="draft_button">Save as Draft</string>
+  <string name="save_send_button"><![CDATA[Save & Send]]></string>
+  <string name="save_changes_button">Save Changes</string>
+  <string name="cancel_button">Cancel</string>
+  <string name="edit_title">Edit #%s</string>
+  <string name="create_new_invoice">New Invoice</string>
+</resources>

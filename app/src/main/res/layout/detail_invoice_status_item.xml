@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:bind="http://schemas.android.com/tools">
+
+  <data>
+
+    <variable
+      name="viewModel"
+      type="com.akshay.atlysaccounting.ui.home.detail.StatusViewModel" />
+  </data>
+
+  <FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.google.android.material.card.MaterialCardView
+      android:id="@+id/minimal_invoice_container_card"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="16dp"
+      app:cardBackgroundColor="@color/card_background"
+      app:cardCornerRadius="8dp">
+
+      <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+          android:id="@+id/status_title"
+          style="@style/SubHeading1"
+          android:layout_marginStart="32dp"
+          android:layout_marginTop="36dp"
+          android:layout_marginBottom="36dp"
+          android:text="@string/status"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+          android:id="@+id/middle_guideline"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:orientation="vertical"
+          app:layout_constraintGuide_percent="0.65" />
+
+        <include
+          android:id="@+id/status_container"
+          layout="@layout/status_label"
+          android:layout_width="0dp"
+          android:layout_height="0dp"
+          android:layout_marginTop="28dp"
+          android:layout_marginEnd="16dp"
+          android:layout_marginBottom="28dp"
+          android:padding="16dp"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toEndOf="@+id/middle_guideline"
+          app:layout_constraintTop_toTopOf="parent"
+          bind:status="@{viewModel.status}" />
+      </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+  </FrameLayout>
+</layout>

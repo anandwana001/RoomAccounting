@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto">
+  <data>
+    <variable
+      name="viewModel"
+      type="com.akshay.atlysaccounting.ui.home.detail.DeleteConfirmationDialogViewModel" />
+  </data>
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/delete_confirmation_dialog_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/inset_drawable">
+
+    <TextView
+      android:id="@+id/confirmation_title_text_view"
+      style="@style/Heading2"
+      android:layout_marginStart="32dp"
+      android:layout_marginTop="32dp"
+      android:text="@string/confirm_delete_title"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.0"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+      android:id="@+id/confirmation_message_text_view"
+      style="@style/SubHeading1"
+      android:layout_width="0dp"
+      android:layout_marginStart="32dp"
+      android:layout_marginTop="16dp"
+      android:layout_marginEnd="32dp"
+      android:text="@{String.format(@string/confirm_delete_message, viewModel.invoiceId)}"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.0"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/confirmation_title_text_view" />
+
+    <Button
+      android:id="@+id/cancel_button"
+      style="@style/Button1"
+      android:layout_marginTop="32dp"
+      android:layout_marginEnd="16dp"
+      android:layout_marginBottom="32dp"
+      android:background="@drawable/edit_background"
+      android:fontFamily="@font/spartan_bold"
+      android:text="@string/cancel"
+      app:backgroundTint="@null"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toStartOf="@+id/delete_confirm_button"
+      app:layout_constraintTop_toBottomOf="@+id/confirmation_message_text_view" />
+
+    <Button
+      android:id="@+id/delete_confirm_button"
+      style="@style/Button1"
+      android:layout_marginTop="32dp"
+      android:layout_marginEnd="32dp"
+      android:layout_marginBottom="32dp"
+      android:background="@drawable/delete_background"
+      android:fontFamily="@font/spartan_bold"
+      android:text="@string/delete_button"
+      app:backgroundTint="@null"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/confirmation_message_text_view" />
+  </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

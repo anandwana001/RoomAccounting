@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto">
+
+  <data>
+
+    <variable
+      name="viewModel"
+      type="com.akshay.atlysaccounting.ui.home.write.viewmodel.ClientCityPostCodeViewModel" />
+  </data>
+
+  <FrameLayout
+    android:id="@+id/client_city_address_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content">
+
+      <TextView
+        android:id="@+id/city_title_text_view"
+        style="@style/SubHeading1"
+        android:layout_marginTop="16dp"
+        android:text="@string/city_title"
+        app:layout_constraintEnd_toStartOf="@+id/middle_guideline"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+      <TextView
+        android:id="@+id/post_code_title_text_view"
+        style="@style/SubHeading1"
+        android:layout_marginTop="16dp"
+        android:text="@string/post_code_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/middle_guideline"
+        app:layout_constraintTop_toTopOf="parent" />
+
+      <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/middle_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+      <EditText
+        android:id="@+id/client_city_text_input"
+        style="@style/InputInteractionEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:text="@{viewModel.city}"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/middle_guideline"
+        app:layout_constraintStart_toStartOf="@+id/city_title_text_view"
+        app:layout_constraintTop_toBottomOf="@+id/city_title_text_view"
+        app:textChangedListener="@{viewModel.cityAddressTextWatcher}" />
+
+      <EditText
+        android:id="@+id/client_post_code_text_input"
+        style="@style/InputInteractionEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@{viewModel.postCode}"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/middle_guideline"
+        app:layout_constraintTop_toBottomOf="@+id/post_code_title_text_view"
+        app:textChangedListener="@{viewModel.postCodeAddressTextWatcher}" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+  </FrameLayout>
+</layout>

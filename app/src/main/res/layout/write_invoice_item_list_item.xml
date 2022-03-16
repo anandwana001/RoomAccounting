@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools">
+
+  <data>
+
+    <variable
+      name="viewModel"
+      type="com.akshay.atlysaccounting.ui.home.write.viewmodel.ItemListItemViewModel" />
+  </data>
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp">
+
+    <TextView
+      android:id="@+id/item_name_title_text_view"
+      style="@style/SubHeading1"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="8dp"
+      android:text="@string/item_name_title"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.0"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+      android:id="@+id/item_name_text_input_edit_text"
+      style="@style/InputInteractionEditText"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="8dp"
+      android:text="@{viewModel.name}"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/item_name_title_text_view"
+      app:textChangedListener="@{viewModel.itemNameListener}" />
+
+    <TextView
+      android:id="@+id/qty_title_text_view"
+      style="@style/SubHeading1"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="8dp"
+      android:text="@string/quantity_title"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/item_name_text_input_edit_text" />
+
+    <EditText
+      android:id="@+id/qty_text_input"
+      style="@style/InputInteractionEditText"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="8dp"
+      android:inputType="number"
+      android:text="@{viewModel.quantity}"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toStartOf="@+id/price_text_input"
+      app:layout_constraintHorizontal_bias="0.5"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/qty_title_text_view"
+      app:textChangedListener="@{viewModel.itemQuantityListener}"
+      tools:text="1" />
+
+    <TextView
+      android:id="@+id/price_title_text_view"
+      style="@style/SubHeading1"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="8dp"
+      android:text="@string/price_title"
+      app:layout_constraintStart_toStartOf="@+id/price_text_input"
+      app:layout_constraintTop_toBottomOf="@+id/item_name_text_input_edit_text" />
+
+    <EditText
+      android:id="@+id/price_text_input"
+      style="@style/InputInteractionEditText"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="16dp"
+      android:layout_marginTop="8dp"
+      android:layout_marginEnd="16dp"
+      android:inputType="numberDecimal"
+      android:text="@{viewModel.price}"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toStartOf="@+id/total_text_view"
+      app:layout_constraintHorizontal_bias="0.5"
+      app:layout_constraintStart_toEndOf="@+id/qty_text_input"
+      app:layout_constraintTop_toBottomOf="@+id/price_title_text_view"
+      app:textChangedListener="@{viewModel.itemPriceListener}"
+      tools:text="156.00" />
+
+    <TextView
+      android:id="@+id/total_title_text_view"
+      style="@style/SubHeading1"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="8dp"
+      android:text="@string/total_title"
+      app:layout_constraintStart_toStartOf="@+id/total_text_view"
+      app:layout_constraintTop_toBottomOf="@+id/item_name_text_input_edit_text" />
+
+    <TextView
+      android:id="@+id/total_text_view"
+      style="@style/Heading3"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="8dp"
+      android:layout_marginEnd="16dp"
+      android:text="@{viewModel.total}"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toStartOf="@+id/delete_item"
+      app:layout_constraintHorizontal_bias="0.5"
+      app:layout_constraintStart_toEndOf="@+id/price_text_input"
+      app:layout_constraintTop_toBottomOf="@+id/total_title_text_view"
+      tools:text="156.000000" />
+
+    <Button
+      android:id="@+id/delete_item"
+      android:layout_width="20dp"
+      android:layout_height="20dp"
+      android:background="@drawable/icon_delete"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="1.0"
+      app:layout_constraintTop_toBottomOf="@+id/total_title_text_view" />
+  </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

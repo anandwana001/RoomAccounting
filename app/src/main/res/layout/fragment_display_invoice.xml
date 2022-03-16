@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools">
+
+  <data>
+
+    <import type="android.view.View" />
+
+    <variable
+      name="viewModel"
+      type="com.akshay.atlysaccounting.ui.home.display.DisplayInvoiceViewModel" />
+  </data>
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/page_background">
+
+    <ImageView
+      android:id="@+id/empty_image_view"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:contentDescription="@string/content_des_empty_image"
+      android:src="@drawable/illustration_empty"
+      android:visibility="@{viewModel.invoiceCount == 0 ? View.VISIBLE : View.GONE}"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/invoice_count_text_view" />
+
+    <TextView
+      android:id="@+id/empty_list_text_view"
+      style="@style/Heading1"
+      android:layout_marginTop="16dp"
+      android:text="@string/empty_list_title"
+      android:visibility="@{viewModel.invoiceCount == 0 ? View.VISIBLE : View.GONE}"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/empty_image_view" />
+
+    <TextView
+      android:id="@+id/empty_list_message_text_view"
+      style="@style/SubHeading1"
+      android:layout_width="0dp"
+      android:layout_marginTop="16dp"
+      android:gravity="center"
+      android:layout_marginStart="32dp"
+      android:layout_marginEnd="32dp"
+      android:text="@string/empty_list_message"
+      android:visibility="@{viewModel.invoiceCount == 0 ? View.VISIBLE : View.GONE}"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/empty_list_text_view" />
+
+    <TextView
+      android:id="@+id/invoice_title_text_view"
+      style="@style/Title"
+      android:layout_marginStart="16dp"
+      android:layout_marginTop="32dp"
+      android:text="@string/invoices_title"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+      android:id="@+id/invoice_count_text_view"
+      style="@style/SubHeading1"
+      android:layout_marginTop="4dp"
+      android:text="@{viewModel.invoiceCount == 0 ? @string/invoice_count_zero : @plurals/invoice_count(viewModel.invoiceCount, viewModel.invoiceCount)}"
+      app:layout_constraintStart_toStartOf="@+id/invoice_title_text_view"
+      app:layout_constraintTop_toBottomOf="@+id/invoice_title_text_view" />
+
+    <Button
+      android:id="@+id/create_new_invoice_button"
+      style="@style/Button1"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginEnd="16dp"
+      android:background="@drawable/mark_as_paid_background"
+      android:text="@string/new_invoice_button"
+      app:backgroundTint="@null"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="1.0"
+      app:layout_constraintStart_toEndOf="@+id/invoice_title_text_view"
+      app:layout_constraintTop_toTopOf="@+id/invoice_title_text_view" />
+
+    <androidx.recyclerview.widget.RecyclerView
+      android:id="@+id/invoice_recycler_view"
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      android:layout_marginStart="16dp"
+      android:layout_marginTop="16dp"
+      android:layout_marginEnd="16dp"
+      android:clipToPadding="false"
+      android:paddingBottom="100dp"
+      android:visibility="@{viewModel.invoiceCount != 0 ? View.VISIBLE : View.GONE}"
+      app:data="@{viewModel.displayItemViewModelList}"
+      app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/invoice_count_text_view"
+      tools:listitem="@layout/minimal_invoice_item" />
+  </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

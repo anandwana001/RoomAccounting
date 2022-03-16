@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools">
+
+  <data>
+
+    <variable
+      name="viewModel"
+      type="com.akshay.atlysaccounting.ui.home.detail.DetailViewModel" />
+  </data>
+
+  <FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.google.android.material.card.MaterialCardView
+      android:id="@+id/minimal_invoice_container_card"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="16dp"
+      app:cardBackgroundColor="@color/card_background"
+      app:cardCornerRadius="8dp">
+
+      <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+          android:id="@+id/id_text_view"
+          style="@style/Heading2"
+          android:layout_marginStart="32dp"
+          android:layout_marginTop="16dp"
+          app:endIndex="@{1}"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toTopOf="parent"
+          app:spanColor="@{@color/prefix_id_text_color}"
+          app:spannableString="@{String.format(@string/invoice_id, viewModel.id)}"
+          app:startIndex="@{0}"
+          tools:text="#12AAAA" />
+
+        <TextView
+          android:id="@+id/description_text_view"
+          style="@style/SubHeading1"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="4dp"
+          android:layout_marginEnd="32dp"
+          android:text="@{viewModel.description}"
+          android:textColor="@color/lavender"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintHorizontal_bias="0.0"
+          app:layout_constraintStart_toStartOf="@+id/id_text_view"
+          app:layout_constraintTop_toBottomOf="@+id/id_text_view"
+          tools:text="Graphic design" />
+
+        <TextView
+          android:id="@+id/senders_address_text_view"
+          style="@style/SubHeading1"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="32dp"
+          android:layout_marginEnd="32dp"
+          android:textColor="@color/lavender"
+          app:city="@{viewModel.senderAddress.city}"
+          app:country="@{viewModel.senderAddress.country}"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintHorizontal_bias="0.0"
+          app:layout_constraintStart_toStartOf="@+id/description_text_view"
+          app:layout_constraintTop_toBottomOf="@+id/description_text_view"
+          app:postcode="@{viewModel.senderAddress.postCode}"
+          app:street="@{viewModel.senderAddress.street}"
+          tools:text="19 Union Terrace\nLondon\nE1 3EZ\nUnited Kingdom" />
+
+        <androidx.constraintlayout.widget.Barrier
+          android:id="@+id/barrier1"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          app:barrierDirection="end"
+          app:constraint_referenced_ids="invoice_date_title_text_view, payment_date_text_view" />
+
+        <TextView
+          android:id="@+id/invoice_date_title_text_view"
+          style="@style/SubHeading1"
+          android:layout_marginTop="32dp"
+          android:layout_marginEnd="32dp"
+          android:text="@string/invoice_date_title"
+          android:textColor="@color/lavender"
+          app:layout_constraintEnd_toEndOf="@+id/barrier1"
+          app:layout_constraintHorizontal_bias="0.0"
+          app:layout_constraintStart_toStartOf="@+id/senders_address_text_view"
+          app:layout_constraintTop_toBottomOf="@+id/senders_address_text_view" />
+
+        <TextView
+          android:id="@+id/bill_to_text_view"
+          style="@style/SubHeading1"
+          android:layout_marginStart="32dp"
+          android:text="@string/bill_to_title"
+          android:textColor="@color/lavender"
+          app:layout_constraintBaseline_toBaselineOf="@+id/invoice_date_title_text_view"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintHorizontal_bias="0.0"
+          app:layout_constraintStart_toStartOf="@+id/barrier1" />
+
+        <TextView
+          android:id="@+id/payment_date_text_view"
+          style="@style/Heading1"
+          android:layout_marginTop="8dp"
+          app:date="@{viewModel.createdAt}"
+          app:layout_constraintEnd_toEndOf="@+id/barrier1"
+          app:layout_constraintHorizontal_bias="0.0"
+          app:layout_constraintStart_toStartOf="@+id/invoice_date_title_text_view"
+          app:layout_constraintTop_toBottomOf="@+id/invoice_date_title_text_view"
+          tools:text="21 Aug 2007" />
+
+        <TextView
+          android:id="@+id/client_name_text_view"
+          style="@style/Heading1"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_marginEnd="32dp"
+          android:ellipsize="end"
+          android:maxLines="2"
+          android:text="@{viewModel.clientName}"
+          app:layout_constraintBaseline_toBaselineOf="@+id/payment_date_text_view"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="@+id/bill_to_text_view"
+          app:layout_constraintTop_toBottomOf="@+id/bill_to_text_view"
+          tools:text="Alex Grim" />
+
+        <TextView
+          android:id="@+id/client_address_text_view"
+          style="@style/SubHeading1"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="32dp"
+          android:layout_marginTop="16dp"
+          android:layout_marginEnd="32dp"
+          android:textColor="@color/lavender"
+          app:city="@{viewModel.clientAddress.city}"
+          app:country="@{viewModel.clientAddress.country}"
+          app:layout_constraintBottom_toTopOf="@+id/send_to_title_text_view"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintHorizontal_bias="0.0"
+          app:layout_constraintStart_toStartOf="@+id/barrier1"
+          app:layout_constraintTop_toBottomOf="@+id/client_name_text_view"
+          app:postcode="@{viewModel.clientAddress.postCode}"
+          app:street="@{viewModel.clientAddress.street}"
+          tools:text="84 Church Way\nBradford\nBD1 9PB\nUnited Kingdom" />
+
+        <TextView
+          android:id="@+id/payment_due_text_view"
+          style="@style/SubHeading1"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="32dp"
+          android:text="@string/payment_due_title"
+          android:textColor="@color/lavender"
+          app:layout_constraintEnd_toEndOf="@+id/barrier1"
+          app:layout_constraintHorizontal_bias="0.0"
+          app:layout_constraintStart_toStartOf="@+id/payment_date_text_view"
+          app:layout_constraintTop_toBottomOf="@+id/payment_date_text_view" />
+
+        <TextView
+          android:id="@+id/payment_due_date_text_view"
+          style="@style/Heading1"
+          android:layout_marginTop="8dp"
+          app:date="@{viewModel.paymentDue}"
+          app:layout_constraintEnd_toEndOf="@+id/barrier1"
+          app:layout_constraintHorizontal_bias="0.0"
+          app:layout_constraintStart_toStartOf="@+id/payment_due_text_view"
+          app:layout_constraintTop_toBottomOf="@+id/payment_due_text_view"
+          tools:text="21 Aug 2007" />
+
+        <TextView
+          android:id="@+id/send_to_title_text_view"
+          style="@style/SubHeading1"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_marginTop="32dp"
+          android:text="@string/send_to_title"
+          android:textColor="@color/lavender"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintHorizontal_bias="0.0"
+          app:layout_constraintStart_toStartOf="@+id/payment_due_date_text_view"
+          app:layout_constraintTop_toBottomOf="@+id/payment_due_date_text_view" />
+
+        <TextView
+          android:id="@+id/client_email_text_view"
+          style="@style/Heading1"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_marginEnd="32dp"
+          android:text="@{viewModel.clientEmail}"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintHorizontal_bias="0.0"
+          app:layout_constraintStart_toStartOf="@+id/send_to_title_text_view"
+          app:layout_constraintTop_toBottomOf="@+id/send_to_title_text_view"
+          tools:text="akshaynandwana001gmail.com" />
+
+        <com.google.android.material.card.MaterialCardView
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_marginStart="32dp"
+          android:layout_marginTop="32dp"
+          android:layout_marginEnd="32dp"
+          android:layout_marginBottom="16dp"
+          app:cardBackgroundColor="@color/card_background2"
+          app:cardCornerRadius="8dp"
+          app:layout_constraintBottom_toBottomOf="parent"
+          app:layout_constraintEnd_toEndOf="parent"
+          app:layout_constraintStart_toStartOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/client_email_text_view">
+
+          <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:isVisible="@{viewModel.billItemList}">
+
+            <androidx.recyclerview.widget.RecyclerView
+              android:id="@+id/item_recycler_view"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:clipToPadding="false"
+              android:paddingBottom="16dp"
+              app:data="@{viewModel.billItemList}"
+              app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+              app:layout_constraintBottom_toTopOf="@+id/item_guideline"
+              app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintStart_toStartOf="parent"
+              app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.Guideline
+              android:id="@+id/item_guideline"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="horizontal"
+              app:layout_constraintGuide_percent="0.7" />
+
+            <View
+              android:id="@+id/view"
+              android:layout_width="0dp"
+              android:layout_height="0dp"
+              android:background="@android:color/black"
+              app:layout_constraintBottom_toBottomOf="parent"
+              app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintStart_toStartOf="parent"
+              app:layout_constraintTop_toBottomOf="@+id/item_recycler_view" />
+
+            <TextView
+              android:id="@+id/amount_due_title_text_view"
+              style="@style/SubHeading1"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:layout_marginStart="16dp"
+              android:text="@string/amount_due_title"
+              app:layout_constraintBottom_toBottomOf="parent"
+              app:layout_constraintStart_toStartOf="parent"
+              app:layout_constraintTop_toTopOf="@+id/view" />
+
+            <TextView
+              android:id="@+id/total_bill_amount_text_view"
+              style="@style/Heading1"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              app:layout_constraintBottom_toBottomOf="@+id/amount_due_title_text_view"
+              app:layout_constraintEnd_toEndOf="parent"
+              app:layout_constraintStart_toEndOf="@+id/amount_due_title_text_view"
+              app:layout_constraintTop_toTopOf="@+id/amount_due_title_text_view"
+              app:total="@{viewModel.total}"
+              tools:text="RS 424.4" />
+          </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.google.android.material.card.MaterialCardView>
+      </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+  </FrameLayout>
+</layout>
