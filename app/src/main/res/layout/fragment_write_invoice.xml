@@ -8,7 +8,7 @@
 
     <variable
       name="viewModel"
-      type="com.akshay.atlysaccounting.ui.home.write.WriteInvoiceViewModel" />
+      type="com.akshay.roomaccounting.ui.home.write.WriteInvoiceViewModel" />
   </data>
 
   <androidx.constraintlayout.widget.ConstraintLayout

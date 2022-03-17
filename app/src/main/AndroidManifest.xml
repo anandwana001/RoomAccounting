@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-  package="com.akshay.atlysaccounting">
+  package="com.akshay.roomaccounting">
 
   <application
-    android:name=".AtlysAccountingApplication"
+    android:name="com.akshay.roomaccounting.RoomAccountingApplication"
     android:allowBackup="true"
     android:icon="@mipmap/ic_launcher"
     android:label="@string/app_name"
     android:supportsRtl="true"
-    android:theme="@style/Theme.AtlysAccounting">
+    android:theme="@style/Theme.RoomAccounting">
     <activity
       android:exported="true"
       android:configChanges="orientation|screenSize|layoutDirection"
-      android:name=".ui.home.HomeActivity">
+      android:name="com.akshay.roomaccounting.ui.home.HomeActivity">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
 

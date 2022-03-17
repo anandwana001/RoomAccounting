@@ -7,7 +7,7 @@
 
     <variable
       name="viewModel"
-      type="com.akshay.atlysaccounting.ui.home.HomeViewModel" />
+      type="com.akshay.roomaccounting.ui.home.HomeViewModel" />
   </data>
 
   <androidx.coordinatorlayout.widget.CoordinatorLayout

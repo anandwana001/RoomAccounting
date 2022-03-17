@@ -7,7 +7,7 @@
 
     <variable
       name="viewModel"
-      type="com.akshay.atlysaccounting.ui.home.write.viewmodel.ItemListItemViewModel" />
+      type="com.akshay.roomaccounting.ui.home.write.viewmodel.ItemListItemViewModel" />
   </data>
 
   <androidx.constraintlayout.widget.ConstraintLayout

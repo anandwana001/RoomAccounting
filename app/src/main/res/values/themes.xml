@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
   <!-- Base application theme. -->
-  <style name="Theme.AtlysAccounting" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+  <style name="Theme.RoomAccounting" parent="Theme.MaterialComponents.DayNight.NoActionBar">
     <item name="colorPrimary">@color/violet_shade_10</item>
     <item name="colorPrimaryVariant">@color/violet_shade_20</item>
     <item name="colorOnPrimary">@android:color/white</item>

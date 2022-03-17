@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-  package="com.akshay.atlysaccounting">
+  package="com.akshay.roomaccounting">
 
   <application>
     <activity
-      android:name="com.akshay.atlysaccounting.HiltTestActivity"
+      android:name="com.akshay.roomaccounting.HiltTestActivity"
       android:exported="false"  />
   </application>
 

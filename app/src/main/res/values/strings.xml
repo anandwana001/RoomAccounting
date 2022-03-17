@@ -1,5 +1,5 @@
 <resources>
-  <string name="app_name">AtlysAccounting</string>
+  <string name="app_name">RoomAccounting</string>
 
   <string name="paid_status">Paid</string>
   <string name="pending_status">Pending</string>

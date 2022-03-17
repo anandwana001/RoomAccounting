@@ -6,7 +6,7 @@
   <data>
     <variable
       name="viewModel"
-      type="com.akshay.atlysaccounting.ui.home.detail.SingleEntryInvoiceViewModel" />
+      type="com.akshay.roomaccounting.ui.home.detail.SingleEntryInvoiceViewModel" />
   </data>
 
   <androidx.constraintlayout.widget.ConstraintLayout

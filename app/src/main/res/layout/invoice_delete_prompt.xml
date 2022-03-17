@@ -4,7 +4,7 @@
   <data>
     <variable
       name="viewModel"
-      type="com.akshay.atlysaccounting.ui.home.detail.DeleteConfirmationDialogViewModel" />
+      type="com.akshay.roomaccounting.ui.home.detail.DeleteConfirmationDialogViewModel" />
   </data>
 
   <androidx.constraintlayout.widget.ConstraintLayout

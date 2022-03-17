@@ -10,13 +10,13 @@ android {
   compileSdkVersion rootProject.compileSdkVersion
 
   defaultConfig {
-    applicationId "com.akshay.atlysaccounting"
+    applicationId "com.akshay.roomaccounting"
     minSdkVersion rootProject.minSdkVersion
     targetSdkVersion rootProject.targetSdkVersion
     versionCode 1
     versionName "1.0"
 
-    testInstrumentationRunner "com.akshay.atlysaccounting.utility.AtlysRunner"
+    testInstrumentationRunner "com.akshay.roomaccounting.utility.RoomAccountingRunner"
   }
 
   buildTypes {

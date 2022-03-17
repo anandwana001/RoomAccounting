@@ -7,7 +7,7 @@
 
     <variable
       name="viewModel"
-      type="com.akshay.atlysaccounting.ui.home.detail.StatusViewModel" />
+      type="com.akshay.roomaccounting.ui.home.detail.StatusViewModel" />
   </data>
 
   <FrameLayout

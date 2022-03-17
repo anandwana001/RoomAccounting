@@ -6,7 +6,7 @@
 
     <variable
       name="viewModel"
-      type="com.akshay.atlysaccounting.ui.home.write.viewmodel.ClientCityPostCodeViewModel" />
+      type="com.akshay.roomaccounting.ui.home.write.viewmodel.ClientCityPostCodeViewModel" />
   </data>
 
   <FrameLayout
