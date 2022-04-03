@@ -1,6 +1,6 @@
 # RoomAccounting
 
-**RoomAccounting** app is a simple invoice accouting application. Based on local database with the CRUD operation.
+**RoomAccounting** app is a simple invoice accounting application. Based on the local database with the CRUD operation.
 
 ## Architecture 📐
 Project is a single module consist of multiple packages in order to achieve MVVM architecture.
